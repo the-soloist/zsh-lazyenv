@@ -1,4 +1,3 @@
-# https://github.com/shihyuho/zsh-jenv-lazy
 # Try to find jenv, if it's not on the path
 export JENV_ROOT="${JENV_ROOT:=${HOME}/.jenv}"
 if ! type jenv > /dev/null && [ -f "${JENV_ROOT}/bin/jenv" ]; then

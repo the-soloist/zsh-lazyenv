@@ -10,9 +10,6 @@ if type goenv > /dev/null; then
     function goenv() {
         unset -f goenv
         eval "$(command goenv init -)"
-        if [[ -n "${ZSH_goenv_LAZY_VIRTUALENV}" ]]; then
-            eval "$(command goenv virtualenv-init -)"
-        fi
         goenv $@
     }
 fi

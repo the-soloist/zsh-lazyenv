@@ -1,4 +1,3 @@
-# https://github.com/davidparsson/zsh-pyenv-lazy
 # Try to find pyenv, if it's not on the path
 export PYENV_ROOT="${PYENV_ROOT:=${HOME}/.pyenv}"
 if ! type pyenv > /dev/null && [ -f "${PYENV_ROOT}/bin/pyenv" ]; then
