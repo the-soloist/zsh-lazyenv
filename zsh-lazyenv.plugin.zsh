@@ -1,11 +1,11 @@
-if [[ $LAZYENV =~ "go" ]]; then
+if [[ $LAZYENV =~ "goenv" ]]; then
     source $ZSH_CUSTOM/plugins/zsh-lazyenv/autoload/goenv.zsh
 fi
 
-if [[ $LAZYENV =~ "java" ]]; then
+if [[ $LAZYENV =~ "jenv" ]]; then
     source $ZSH_CUSTOM/plugins/zsh-lazyenv/autoload/jenv.zsh
 fi
 
-if [[ $LAZYENV =~ "python" ]]; then
+if [[ $LAZYENV =~ "pyenv" ]]; then
     source $ZSH_CUSTOM/plugins/zsh-lazyenv/autoload/pyenv.zsh
 fi
