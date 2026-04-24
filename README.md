@@ -24,11 +24,14 @@ Set before plugins are loaded in `.zshrc`:
 # Select which env managers to lazy load (colon-separated)
 export LAZYENV="goenv:jenv:pyenv"
 
-# Root directories for each manager
-export GOENV_ROOT="/path/to/goenv"
+# Root directories for each manager (defaults shown)
+export GOENV_ROOT="/path/to/goenv"       # default: ~/.goenv
 export GOENV_GOPATH_PREFIX="/path/to/goenv/home"
-export JENV_ROOT="/path/to/jenv"
-export PYENV_ROOT="/path/to/pyenv"
+export JENV_ROOT="/path/to/jenv"         # default: ~/.jenv
+export PYENV_ROOT="/path/to/pyenv"       # default: ~/.pyenv
+
+# Optional: enable pyenv-virtualenv lazy init
+# export ZSH_PYENV_LAZY_VIRTUALENV=1
 ```
 
 ## Supported Managers
