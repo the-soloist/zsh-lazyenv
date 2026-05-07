@@ -8,6 +8,14 @@
 #   PYENV_ROOT             - pyenv install path (default: ~/.pyenv)
 #   ZSH_PYENV_LAZY_VIRTUALENV - set to enable pyenv-virtualenv lazy init
 
+_lazyenv_fix_virtualenv_path() {
+  [[ -n "$VIRTUAL_ENV" && -d "$VIRTUAL_ENV/bin" ]] || return
+
+  typeset -gaU path
+  path=("$VIRTUAL_ENV/bin" ${path:#"$VIRTUAL_ENV/bin"})
+  export PATH
+}
+
 _lazyenv_init() {
   local cmd="$1" root_var="$2" default_root="$3"
   local root="${(P)root_var:-$default_root}"
@@ -22,6 +30,10 @@ _lazyenv_init() {
     eval "function $cmd() { unset -f $cmd; eval \"\$(command $cmd init -)\"; $cmd \"\$@\" }"
   fi
 }
+
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd _lazyenv_fix_virtualenv_path
+_lazyenv_fix_virtualenv_path
 
 [[ "$LAZYENV" == *goenv* ]] && _lazyenv_init goenv GOENV_ROOT "$HOME/.goenv"
 [[ "$LAZYENV" == *jenv*  ]] && _lazyenv_init jenv  JENV_ROOT  "$HOME/.jenv"
